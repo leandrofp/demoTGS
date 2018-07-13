@@ -51,14 +51,14 @@ class HomeScreen extends Component {
       blah: ''
     };
 
-    this.onPressItem = this.onPressItem.bind(this);
+    //this.onPressItem = this.onPressItem.bind(this);
     this.closeConfirmModal = this.closeConfirmModal.bind(this);
     this.openModalOk = this.openModalOk.bind(this);
     this.closeModalOk = this.closeModalOk.bind(this);
   }
 
   async componentWillMount() {
-    OneSignal.init('5ddb699b-6bc7-4ed3-aa25-28866f8784e4', { kOSSettingsKeyAutoPrompt: true });
+    OneSignal.init('e12efd20-2c31-4392-8351-abb70f546e39', { kOSSettingsKeyAutoPrompt: true });
     var providedConsent = await OneSignal.userProvidedPrivacyConsent();
 
     OneSignal.setLocationShared(true);
@@ -124,17 +124,28 @@ class HomeScreen extends Component {
   onIds(device) {
     console.log('Device info: ', device);
   }
-
+  /*
   onPressItem(e) {
     this.setState({ modalConfirm: true, activeIndex: '0' });
-  }
+  }*/
 
   closeConfirmModal() {
     this.setState({ modalConfirm: false });
   }
 
   openModalOk() {
-    this.setState({ modalOk: true });
+
+    let listaux = this.state.list
+    const index = this.state.activeIndex
+    //listaux.splice(this.state.activeIndex,1)
+    this.setState({ modalOk: true , list : listaux.filter(function(item) {return item.index !== index }) });
+
+
+    /*this.setState({people: this.state.people.filter(function(person) { 
+      return person !== e.target.value 
+    })});*/
+
+
   }
 
   closeModalOk() {
