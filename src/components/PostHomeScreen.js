@@ -62,6 +62,14 @@ class HomeScreen extends Component {
     var providedConsent = await OneSignal.userProvidedPrivacyConsent();
 
     OneSignal.setLocationShared(true);
+
+    //primer parametro KEY , segundo el TAG
+      OneSignal.sendTag("User", "josePerez");     // recordar que esto carga luego del login, por ende requiere logueo
+      
+      //OneSignal.deleteTag("key")                // Borra un tag en base a su "key" , requiere reiniciar emulador y es asincronica
+      
+
+
   }
 
   componentDidMount() {
@@ -97,7 +105,7 @@ class HomeScreen extends Component {
     console.log('isActive: ', openResult.notification.isAppInFocus);
     console.log('openResult: ', openResult);
 
-    let maxIndex = 0;
+    let maxIndex = -1;
     let maxOrdenDeCompra = 0;
 
     this.state.list.map((item, i) => {
@@ -118,7 +126,7 @@ class HomeScreen extends Component {
       total: '16000',
       index: maxIndex + 1
     };
-    this.setState({ modalOk: false, list: [...this.state.list, item] });
+    this.setState({ list: [...this.state.list, item] });
   }
 
   onIds(device) {
@@ -176,7 +184,7 @@ class HomeScreen extends Component {
             (item, i) =>
               this.state.activeIndex === item.index && (
                 <View style={{ flex: 1 }}>
-                  <Card title={'Orden de Transporte numero #' + item.nro} titleStyle={styles.cardTitle}>
+                  <Card title={'Orden de compra numero #' + item.nro} titleStyle={styles.cardTitle}>
                     <Text style={styles.textDetails}>Posicion: {item.pos}</Text>
                     <Text style={styles.textDetails}>Descripcion: {item.mat}</Text>
                     <Text style={styles.textDetails}>Cantidad: {item.qty}</Text>

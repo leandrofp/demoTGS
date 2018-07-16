@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, TextInput, Alert, Image, TouchableOpacity, KeyboardAvoidingView, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
-import { fetchPeople } from '../../actions/index';
+import { closeConfirmModal } from '../actions/login_actions';
 
 class LoginScreen extends Component {
   constructor(props) {
@@ -10,11 +10,11 @@ class LoginScreen extends Component {
   }
 
   componentDidMount() {
-    if (this.props.tabnavi.isFetching === false) {
+    /*if (this.props.tabnavi.isFetching === false) {
       this.props.fetchPeople();
     } else {
       alert('Todavia no!');
-    }
+    }*/
   }
 
   validateLogin() {
@@ -99,7 +99,4 @@ const styles = {
 function mapStateToProps(state) {
   return state;
 }
-export default connect(
-  mapStateToProps,
-  { fetchPeople }
-)(LoginScreen);
+export default connect( mapStateToProps, { closeConfirmModal } )(LoginScreen);
