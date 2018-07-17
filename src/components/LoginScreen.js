@@ -25,7 +25,7 @@ class LoginScreen extends Component {
       Alert.alert('Usuario o contraseña incorrecta');
     }
   }
-
+  //enum('height', 'position', 'padding')
   render() {
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
@@ -96,7 +96,9 @@ const styles = {
   }
 };
 
+
 function mapStateToProps(state) {
   return state;
 }
-export default connect( mapStateToProps, { closeConfirmModal } )(LoginScreen);
+
+export default connect( mapStateToProps )(LoginScreen);

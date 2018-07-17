@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, Image, FlatList, Modal, TouchableHighlight } from 'react-native';
-import { List, ListItem, Card, Icon } from 'react-native-elements';
+//import { Text, View, TouchableOpacity, Image, FlatList, Modal, TouchableHighlight } from 'react-native';
+//import { List, ListItem, Card, Icon } from 'react-native-elements';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import LoginScreen from './LoginScreen';
-import OneSignal from 'react-native-onesignal';
-
+import SettingsScreen from './SettingsScreen'
+import HomeScreen from './HomeScreen';
+//import OneSignal from 'react-native-onesignal';
+//import postHomeScreenActions from '../actions/postHomeScreen_actions';
+//import { connect } from 'react-redux';
+/*
 class HomeScreen extends Component {
   constructor(props) {
     super(props);
@@ -132,12 +136,13 @@ class HomeScreen extends Component {
   onIds(device) {
     console.log('Device info: ', device);
   }
-  /*
-  onPressItem(e) {
-    this.setState({ modalConfirm: true, activeIndex: '0' });
-  }*/
+  
+  //onPressItem(e) {
+  //  this.setState({ modalConfirm: true, activeIndex: '0' });
+  //}
 
   closeConfirmModal() {
+
     this.setState({ modalConfirm: false });
   }
 
@@ -147,11 +152,6 @@ class HomeScreen extends Component {
     const index = this.state.activeIndex
     //listaux.splice(this.state.activeIndex,1)
     this.setState({ modalOk: true , list : listaux.filter(function(item) {return item.index !== index }) });
-
-
-    /*this.setState({people: this.state.people.filter(function(person) { 
-      return person !== e.target.value 
-    })});*/
 
 
   }
@@ -229,7 +229,8 @@ class HomeScreen extends Component {
     );
   }
 }
-
+*/
+/*
 class SettingsScreen extends Component {
   constructor() {
     super();
@@ -266,7 +267,8 @@ class SettingsScreen extends Component {
     );
   }
 }
-
+*/
+/*
 const styles = {
   container: {
     flex: 1,
@@ -337,8 +339,9 @@ const styles = {
     elevation: 2 // Android
   }
 };
-
+*/
 //Home
+
 const HomeStack = createStackNavigator(
   {
     Home: HomeScreen
@@ -374,33 +377,36 @@ const SettingsStack = createStackNavigator(
 );
 
 // Tabs
+
 export default createBottomTabNavigator(
-  {
-    Inicio: HomeStack,
-    Configuracion: SettingsStack
-  },
-  {
-    navigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused, tintColor }) => {
-        const { routeName } = navigation.state;
-        let iconName;
-        if (routeName === 'Inicio') {
-          iconName = `ios-home${focused ? '' : '-outline'}`;
-        } else if (routeName === 'Configuracion') {
-          iconName = `ios-options${focused ? '' : '-outline'}`;
+    {
+      Inicio: HomeStack,
+      Configuracion: SettingsStack
+    },
+    {
+      navigationOptions: ({ navigation }) => ({
+        tabBarIcon: ({ focused, tintColor }) => {
+          const { routeName } = navigation.state;
+          let iconName;
+          if (routeName === 'Inicio') {
+            iconName = `ios-home${focused ? '' : '-outline'}`;
+          } else if (routeName === 'Configuracion') {
+            iconName = `ios-options${focused ? '' : '-outline'}`;
+          }
+          // You can return any component that you like here! We usually use an
+          // icon component from react-native-vector-icons
+          return <Ionicons name={iconName} size={25} color={tintColor} />;
         }
-        // You can return any component that you like here! We usually use an
-        // icon component from react-native-vector-icons
-        return <Ionicons name={iconName} size={25} color={tintColor} />;
-      }
-    }),
-    tabBarOptions: {
-      showIcon: true,
-      activeTintColor: '#205791',
-      //inactiveTintColor: '#0c223a',
-      style: {
-        backgroundColor: '#fff'
+      }),
+      tabBarOptions: {
+        showIcon: true,
+        activeTintColor: '#205791',
+        //inactiveTintColor: '#0c223a',
+        style: {
+          backgroundColor: '#fff'
+        }
       }
     }
-  }
 );
+
+

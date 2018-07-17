@@ -1,22 +1,26 @@
 import {postHomeScreenConstants} from '../constants/postHomeScreen_constants';
 
+export const postHomeScreenActions = {
+  closeConfirmModal,
+  closeModalOk,
+  openModalOk,
+}
 
-
-export const closeConfirmModal=() =>  {
-  return {
-    type: postHomeScreenConstants.closeConfirmModal
+function closeConfirmModal(){
+  return dispatch => {
+    dispatch({type: postHomeScreenConstants.closeConfirmModal});
   };
 }
 
-export const openModalOk=() => {
-  return {
-    type: postHomeScreenConstants.openModalOk
+function openModalOk(){
+  return dispatch => {
+    dispatch({type: postHomeScreenConstants.openModalOk});
   };
 }
 
-export const closeModalOk=() => {
-  return {
-    type: postHomeScreenConstants.closeModalOk
+function closeModalOk(){
+  return dispatch => {
+    dispatch({type: postHomeScreenConstants.closeModalOk});
   };
 }
 

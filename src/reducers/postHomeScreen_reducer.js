@@ -1,8 +1,11 @@
 const initialState = {
   modalConfirm:false,
-  ModalOk:false,
+  modalOk:false,
   ordenesCompra: [],
-  activeIndex:0
+  activeIndex:0,
+
+  probandoredux:5
+
 };
 
 export function postHomeScreen(state = initialState, action) {
@@ -11,15 +14,18 @@ export function postHomeScreen(state = initialState, action) {
       let listaux = this.state.list
       const index = this.state.activeIndex
       //listaux.splice(this.state.activeIndex,1)
-      return ({ modalOk: true , list : listaux.filter(function(item) {return item.index !== index }) });
+      return Object.assign({} , state, { modalOk: true , list : listaux.filter(function(item) {return item.index !== index }) });
     }
     case 'CLOSE_CONFIRM_MODAL':{
-      
+      return Object.assign({}, state, {
+        modalConfirm: false
+      });
     }
     case 'CLOSE_MODAL_OK':{
-    
+      return Object.assign({}, state, {
+        modalConfirm: false , modalOk:false
+      });
     }
-
     default:
       return state;
   }
