@@ -1,7 +1,7 @@
 export const postHomeScreenConstants = {
 
-    openModalOk: 'OPEN_MODAL_OK',
-    closeModalOk: 'CLOSE_MODAL_OK',
-    closeConfirmModal: 'CLOSE_CONFIRM_MODAL',
+    OPEN_MODAL_OK: 'OPEN_MODAL_OK',
+    CLOSE_MODAL_OK: 'CLOSE_MODAL_OK',
+    CLOSE_CONFIRM_MODAL: 'CLOSE_CONFIRM_MODAL',
 }
    

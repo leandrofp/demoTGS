@@ -4,11 +4,9 @@ const initialState = {
   ordenesCompra: [],
   activeIndex:0,
 
-  probandoredux:5
-
 };
 
-export function postHomeScreen(state = initialState, action) {
+export function homeScreen(state = initialState, action) {
   switch (action.type) {
     case 'OPEN_MODAL_OK':{
       let listaux = this.state.list

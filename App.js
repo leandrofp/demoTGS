@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-import { postHomeScreen } from './src/reducers/postHomeScreen_reducer';
+import { homeScreen } from './src/reducers/postHomeScreen_reducer';
 import LoginScreen from './src/components/LoginScreen';
 import PostHomeScreen from './src/components/PostHomeScreen';
 
@@ -30,7 +30,7 @@ export default class App extends Component {
  
   render() {
     const appReducer = combineReducers({
-      postHomeScreen
+      homeScreen
     });
 
     const createStoreWithMidddleware = applyMiddleware(thunk)(createStore);

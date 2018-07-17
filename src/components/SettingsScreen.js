@@ -5,7 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createStackNavigator } from 'react-navigation';
 import LoginScreen from './LoginScreen';
 //import OneSignal from 'react-native-onesignal';
-import postHomeScreenActions from '../actions/postHomeScreen_actions';
+import homeScreenActions from '../actions/postHomeScreen_actions';
 import { connect } from 'react-redux';
 
 class SettingsScreen extends Component {
@@ -75,9 +75,9 @@ const styles = {
 
 
 const mapStateToProps = state => {
-    const { postHomeScreen } = state;
+    const { homeScreen } = state;
         return {
-            postHomeScreen
+            homeScreen
         };
 };
   

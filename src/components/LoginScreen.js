@@ -73,7 +73,7 @@ const styles = {
     justifyContent: 'center'
   },
   formContainer: {
-    padding: 20
+    padding: 10
   },
   input: {
     height: 40,

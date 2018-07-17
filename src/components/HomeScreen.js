@@ -5,8 +5,10 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 //import LoginScreen from './LoginScreen';
 import OneSignal from 'react-native-onesignal';
-import postHomeScreenActions from '../actions/postHomeScreen_actions';
+
+import {homeScreenActions} from '../actions/postHomeScreen_actions';
 import { connect } from 'react-redux';
+
 
 class HomeScreen extends Component {
     constructor(props) {
@@ -140,8 +142,9 @@ class HomeScreen extends Component {
     }*/
   
     closeConfirmModal() {
-  
-      this.setState({ modalConfirm: false });
+      const {dispatch} = this.props
+      //this.setState({ modalConfirm: false });
+      dispatch(homeScreenActions.closeConfirmModal()) // NO ANDA AUN REVISAR PORQUE
     }
   
     openModalOk() {
@@ -286,9 +289,9 @@ class HomeScreen extends Component {
   };
 
 const mapStateToProps = state => {
-    const { postHomeScreen } = state;
+    const { homeScreen } = state;
         return {
-            postHomeScreen
+            homeScreen
         };
 };
   
