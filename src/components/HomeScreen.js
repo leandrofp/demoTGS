@@ -143,8 +143,8 @@ class HomeScreen extends Component {
   
     closeConfirmModal() {
       const {dispatch} = this.props
-      //this.setState({ modalConfirm: false });
-      dispatch(homeScreenActions.closeConfirmModal()) // NO ANDA AUN REVISAR PORQUE
+      this.setState({ modalConfirm: false });
+      //dispatch(homeScreenActions.closeConfirmModal()) // No anda por el hecho de que hay que configurar q use todo store y no state
     }
   
     openModalOk() {
@@ -217,15 +217,24 @@ class HomeScreen extends Component {
             </View>
           </Modal>
           <Modal visible={modalOk} animationType="slide">
-            <View style={{ flexDirection: 'row', flex: 1, alignItems: 'center', marginLeft: 55 }}>
-              <Icon style={{}} reverse name="ios-checkmark-circle-outline" type="ionicon" color="green" />
-              <Text style={{ fontSize: 25 }}> Orden liberada satisfactoriamente</Text>
+          <View
+            style={{
+              flex: 1,
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            <View style={{ flexDirection: 'row', alignItems: 'center', width: 250 }}>
+              <Icon style={{}} reverse size={20} name="ios-checkmark-circle-outline" type="ionicon" color="green" />
+              <Text style={{ fontSize: 20, textAlign: 'justify' }}>Orden liberada satisfactoriamente</Text>
             </View>
-            <View style={{ justifyContent: 'center', alignItems: 'center', marginBottom: 25 }}>
-              <TouchableHighlight onPress={this.closeModalOk} style={styles.buttonContainerModalRechazar}>
-                <Text style={styles.buttonText}>Salir</Text>
-              </TouchableHighlight>
-            </View>
+          </View>
+          <View style={{ justifyContent: 'center', alignItems: 'center', marginBottom: 25 }}>
+            <TouchableHighlight onPress={this.closeModalOk} style={styles.buttonContainerModalRechazar}>
+              <Text style={styles.buttonText}>Salir</Text>
+            </TouchableHighlight>
+          </View>
           </Modal>
         </View>
       );
